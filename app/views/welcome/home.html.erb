@@ -1,0 +1,24 @@
+Welcome
+<%= current_user.email %>
+
+<table>
+  <tr>
+    <th>Channel Name</th>
+    <th>Show name</th>
+    <th>Show time</th>
+    <th> Action </th>
+  </tr>
+  <% @tv_shows.each do |show| %>
+    <tr>
+      <th>
+        <%= show.channel&.name %>
+      </th>
+      <th>
+        <%= show.name %>
+      </th>
+      <th>
+        <%= show.timing %>
+      </th>
+    </tr>
+  <% end %>
+</table>

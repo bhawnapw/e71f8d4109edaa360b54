@@ -1,0 +1,22 @@
+Favourite Tv shows
+
+<table>
+  <tr>
+    <th>Channel Name</th>
+    <th>Show name</th>
+    <th>Show time</th>
+  </tr>
+  <% @favourite_tv_shows.each do |show| %>
+    <tr>
+      <th>
+        <%= show.tv_show.channel&.name %>
+      </th>
+      <th>
+        <%= show.tv_show.name %>
+      </th>
+      <th>
+        <%= show.tv_show.timing %>
+      </th>
+    </tr>
+  <% end %>
+</table>

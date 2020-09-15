@@ -1,0 +1,35 @@
+Welcome to Tv shows
+
+<%= form_tag root_path, method: "get" do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag "search"%>
+<% end %>
+
+<table>
+  <tr>
+    <th>Channel Name</th>
+    <th>Show name</th>
+    <th>Show time</th>
+    <th> Action </th>
+  </tr>
+  <% @tv_shows.each do |show| %>
+    <tr>
+      <th>
+        <%= show.channel&.name %>
+      </th>
+      <th>
+        <%= show.name %>
+      </th>
+      <th>
+        <%= show.timing %>
+      </th>
+      <th>
+        <% if show.favourite?(current_user) %>
+        <%= link_to "UnFavourite", unfavourite_path(show.id), method: "delete" %>
+        <% else %>
+          <%= link_to "Favourite", favourite_path(show.id), method: "post" %>
+        <% end %>
+      </th>
+    </tr>
+  <% end %>
+</table>

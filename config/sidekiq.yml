@@ -1,0 +1,8 @@
+:dynamic: true
+:queues: 
+  - 'default'
+:schedule:
+  ScheduleNotificationWorker:
+    cron: '0 0 * * *' #this will run at 12AM each day
+    queue: default
+    description: "send schedule notification"

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TvShows</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+  </body>
+     <header>
+       <div class="topnav">
+          <%= link_to "Home", root_path %>
+          <% if current_user.present? %>
+            <%= link_to "Favourite Tv Shows", favourite_tv_shows_path %>
+            <%= link_to "Logout", destroy_user_session_path %>
+          <% else %>
+            <%= link_to "SignIn", new_user_session_path %>
+            <%= link_to "SignUp", new_user_registration_path %>
+          <% end %>
+        </div>
+
+     </header>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
